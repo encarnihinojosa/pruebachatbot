@@ -5,7 +5,11 @@ from google import genai
 from google.genai import types
 
 app = Flask(__name__)
-CORS(app)
+ALLOWED_ORIGINS = [
+    "https://www.diariosur.es",
+    "http://127.0.0.1:5500"  # <-- ¡Este es tu origen local!
+]
+CORS(app, resources={r"/chat": {"origins": ALLOWED_ORIGINS}})
 # -----------------------------------------------------------------
 # SOLUCIÓN: Desactiva la escapada ASCII para ver caracteres en español
 app.json.ensure_ascii = False 
