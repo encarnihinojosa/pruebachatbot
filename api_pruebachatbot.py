@@ -7,6 +7,7 @@ from google.genai import types
 app = Flask(__name__)
 ALLOWED_ORIGINS = [
     "https://www.diariosur.es",
+    "https://proyectos.diariosur.es",
     "http://127.0.0.1:5500"  # <-- ¡Este es tu origen local!
 ]
 CORS(app, resources={r"/chat": {"origins": ALLOWED_ORIGINS}})
